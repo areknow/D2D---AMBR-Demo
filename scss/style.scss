@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+header {
+  text-align: right;
+  position: relative;
+  padding: 50px;
+  color: #0b406b;
+  .logo {
+    height: 86px;
+    width: 282px;
+    position: absolute;
+    top: 0;
+    left: 27px;
+    bottom: 0;
+    margin: auto;
+    //need a 2x asset for retina displays here...
+    background: url(../res/d2d.png);
+    background-size: contain;
+      
+  }
+  .signout {
+    background: #e9e9e9;
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    padding: 10px 14px;
+    color: #999999;
+  }
+}
+
+
+.tabs {
+  border-top: 5px solid #0b406b;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  width: 100%;;
+  float: left;
+  font-family: "Oxygen" sans-serif;
+  font-weight: 300;
+
+    > .tab-content {
+      padding-top: 35px;//fix
+      display: inline;
+      width: 100%;
+      height: 100%;
+      float: left;
+      position: relative;
+
+      .tab {
+        border-bottom: 1px solid black;//fix color
+
+        label {
+          display: block;
+          width: 20%;
+          padding: 20px;
+          background: white;
+          margin-left: -1px;
+          position: relative;
+          left: 1px;
+          color: lightgray;
+          transition: all 0.35s ease;
+          .fa {
+            margin-right: 3px;
+          }
+        }
+
+        label:hover {
+          cursor: pointer;
+          background-color: #fdf2f1;
+          color: #f47e7c;
+        }
+
+        .content {
+          position: absolute;
+          left: 20%;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          background: #f2f2f2;
+//          padding: 20px;
+          color: #000000;
+          .tab-header {
+            background: #e0e0e0;
+            border-bottom: 1px solid grey;
+            padding: 8px 25px;;
+          }
+        }
+
+        [type=radio] {
+          display: none;
+        }
+
+        [type=radio]:checked + label {
+          background: #f47e7c;
+          z-index: 2;
+          color: white;
+        }
+
+        [type=radio]:checked + label + .content {
+          z-index: 1;
+        }
+
+      }
+    }
+}
+
+//#tab-2 + label {
+//  border-top: 1px solid #fdf2f1;
+//  border-bottom: 1px solid #fdf2f1;
+//
+//  &:hover {
+//    border-top: 1px solid #fdf2f1;
+//    border-bottom: 1px solid #fdf2f1;
+//  }
+//
+//}
