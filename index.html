@@ -5,6 +5,7 @@
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <link href="https://fonts.googleapis.com/css?family=Exo+2:600,700|Open+Sans" rel="stylesheet">
     <script src="https://use.fontawesome.com/a03b746a85.js"></script>
   </head>
@@ -23,22 +24,142 @@
         <div class="tab-content">
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-1" checked>
-            <label for="tab-1"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Manage Buyers</label>
-            <div class="content">
+            <label class="tab-label" for="tab-1"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Manage Buyers</label>
+            <div class="content tab1">
               <div class="tab-header">
                 Buyers List
               </div>
               <div class="tab-main">
                 <div class="title">
                   <div class="inline-block">Manage Buyers</div>
-                  <div class="green-button inline-block"><i class="fa fa-fw fa-plus-circle" aria-hidden="true"></i> Add Buyer</div>
+                  <div id="toggle-inputs" class="green-button inline-block"><i class="fa fa-fw fa-plus-circle" aria-hidden="true"></i> Add Buyer</div>
+                </div>
+                <div class="input-row">
+                  <input type="text" id="in-company" placeholder="Company">
+                  <input type="text" id="in-industry" placeholder="Industry">
+                  <input type="text" id="in-date" placeholder="Date">
+                  <button id="addRow" type="button">save</button>
+                </div>
+                <div class="inner">
+                  <table id="buyers" class="display" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>Company Name</th>
+                        <th>Industry</th>
+                        <th>Last Updated</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                      <tr>
+                        <td>DTE Energy</td>
+                        <td>Utilities</td>
+                        <td>12-14-2014</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p id="page-count"></p>
                 </div>
               </div>
             </div>
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-2">
-            <label for="tab-2"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Manage Suppliers</label>
+            <label class="tab-label" for="tab-2"><i class="fa fa-fw fa-cog" aria-hidden="true"></i> Manage Suppliers</label>
             <div class="content">
               <div class="tab-header">
                 Suppliers List
@@ -47,35 +168,35 @@
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-3">
-            <label for="tab-3"><i class="fa fa-fw fa-file-text-o" aria-hidden="true"></i> Spending Reports</label>
+            <label class="tab-label" for="tab-3"><i class="fa fa-fw fa-file-text-o" aria-hidden="true"></i> Spending Reports</label>
             <div class="content">
               <div>Content3</div>
             </div>
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-4">
-            <label for="tab-4"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Events</label>
+            <label class="tab-label" for="tab-4"><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Events</label>
             <div class="content">
               <div>Content4</div>
             </div>
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-5">
-            <label for="tab-5"><i class="fa fa-fw fa-archive" aria-hidden="true"></i> Reports</label>
+            <label class="tab-label" for="tab-5"><i class="fa fa-fw fa-archive" aria-hidden="true"></i> Reports</label>
             <div class="content">
               <div>Content5</div>
             </div>
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-6">
-            <label for="tab-6"><i class="fa fa-fw fa-user" aria-hidden="true"></i> Users</label>
+            <label class="tab-label" for="tab-6"><i class="fa fa-fw fa-user" aria-hidden="true"></i> Users</label>
             <div class="content">
               <div>Content6</div>
             </div>
           </div>
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-7">
-            <label for="tab-7"><i class="fa fa-fw fa-download" aria-hidden="true"></i> Import Data</label>
+            <label class="tab-label" for="tab-7"><i class="fa fa-fw fa-download" aria-hidden="true"></i> Import Data</label>
             <div class="content">
               <div>Content7</div>
             </div>
@@ -93,4 +214,6 @@
   </body>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js" integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=" crossorigin="anonymous"></script>
   <script src="js/init.min.js" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.10.12/api/fnPagingInfo.js" type="text/javascript"></script>
 </html>

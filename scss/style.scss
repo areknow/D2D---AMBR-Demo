@@ -1,6 +1,5 @@
 $dark-blue: #0b406b;
 $light-blue: #199ad6;
-
 $exo: 'Exo 2', sans-serif;
 $open-sans: 'Open Sans', sans-serif;
 
@@ -76,7 +75,7 @@ header {
       position: relative;
       background: $light-blue;
       .tab {
-        label {
+        .tab-label {
           display: block;
           width: 200px;
           padding: 22px 26px;
@@ -94,7 +93,7 @@ header {
             margin-right: 3px;
           }
         }
-        label:hover {
+        .tab-label:hover {
           cursor: pointer;
           background-color: $dark-blue;
         }
@@ -121,6 +120,7 @@ header {
             font-size: 32px;
             color: #333333;
             .title {
+              position: relative;
               .green-button {
                 font-size: 18px;
                 font-weight: 600;
@@ -129,8 +129,18 @@ header {
                 color: #fff;
                 padding: 14px 20px;
                 border-radius: 4px;
-                border-bottom: 3px solid #2c932e;
+//                border-bottom: 3px solid #2c932e;
+                box-shadow: inset 0 -2px rgba(0, 0, 0, .25);
+                position: absolute;
+                right: 0;
               }
+            }
+            .inner {
+              font-size: 14px;
+              font-family: $open-sans;
+              margin-top: 20px;
+              border-top: 1px solid grey;
+              padding-top: 20px;
             }
           }
         }
@@ -181,7 +191,7 @@ header {
     }
 }
 
-#tab-1 + label {
+#tab-1 + .tab-label {
   border-top: 1px solid #5dbeec;
 
 //  &:hover {
@@ -189,4 +199,39 @@ header {
 //    border-bottom: 1px solid #fdf2f1;
 //  }
 
+}
+
+
+
+.tab1 {
+  //move to global if reuse
+  .input-row {
+    display: none;
+  }
+  .inner {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+#buyers_paginate span {
+  display: none !important;
+}
+.dataTables_info {
+  padding-top: 0 !important;
+}
+.dataTables_length {
+  
+}
+#page-count {
+  float: right;
+}
+.dataTables_paginate {
+  padding-top: 0 !important;
+  .paginate_button {
+    padding: 0 !important;
+  }
 }
