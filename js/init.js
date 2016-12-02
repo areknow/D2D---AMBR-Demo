@@ -28,7 +28,7 @@ $(function() {
         intCurrentRatio = parseInt(currentRatio, 10);
         currentPage = currentRatio > intCurrentRatio ? intCurrentRatio + 1 : intCurrentRatio;
         $('#page-count').html('Page ' + currentPage + ' of ' + totalPages);
-        $('#page-count').insertAfter('#buyers_paginate');
+        $('#page-count').insertBefore('#buyers_paginate');
         return 'Showing ' + currentPage + ' of ' + iMax;
       }
   });

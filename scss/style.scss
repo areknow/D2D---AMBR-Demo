@@ -217,21 +217,72 @@ header {
 
 
 
-#buyers_paginate span {
+
+
+
+
+
+
+
+
+.dataTable {
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid grey !important;
+  margin-top: 20px;
+  thead {
+    background: grey;
+    text-align: left;
+  }
+}
+
+
+.dataTables_paginate span {
   display: none !important;
 }
 .dataTables_info {
   padding-top: 0 !important;
+  float: none;
+  margin-right: 20px;
 }
 .dataTables_length {
-  
+  background: #d0d0d0;
+  border-radius: 3px;
+  float: none;
+  select {
+    text-align: center;
+    -webkit-appearance: none; 
+    box-shadow: none !important;
+    border: none;
+    padding: 0;
+    background: none;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-family: $open-sans;
+  }
 }
 #page-count {
-  float: right;
+  float: none;
+  display: inline-block;
+  position: absolute;
+  right: 79px;
 }
 .dataTables_paginate {
   padding-top: 0 !important;
+  float: none !important;
+  text-align: inherit;
+//  display: inline-block;
+  position: absolute;
+  right: 0px;
   .paginate_button {
     padding: 0 !important;
+    min-width: auto !important;
+    margin-left: 0 !important;
+    border-radius: 0!important;
+    display: inline !important;
   }
+}
+table.dataTable thead th, table.dataTable thead td {
+  border-bottom: none !important;
 }
