@@ -4,8 +4,8 @@
     <title>D2D - AMBR Demo</title>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Exo+2:600,700|Open+Sans:400,700" rel="stylesheet">
     <script src="https://use.fontawesome.com/a03b746a85.js"></script>
   </head>
@@ -15,7 +15,10 @@
       <div class="logo"></div>
       <div class="inner">
         <div class="inline-block">Hello, BOB ADMINISTRATOR</div>
-        <div class="signout inline-block"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i> Sign Out</div>
+        <div class="signout inline-block">
+          <i class="fa fa-fw fa-sign-out inline-block" aria-hidden="true"></i> 
+          <div class="inline-block">Sign Out</div>
+        </div>
       </div>
     </header>
     
@@ -47,9 +50,7 @@
                     <label for="in-date">Date</label>
                     <input type="text" id="in-date" placeholder="">
                   </div>
-                  
-                  
-                  <button id="addRow" type="button"><i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i></button>
+                  <button id="addRow" class="disabled" type="button"><i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i></button>
                 </div>
                 <div class="inner">
                   <table id="buyers" class="display" cellspacing="0" width="100%">
@@ -90,6 +91,31 @@
                         <td>DEGC</td>
                         <td>Finance</td>
                         <td>12-02-2014</td>
+                      </tr>
+                      <tr>
+                        <td>Ford</td>
+                        <td>Automotive</td>
+                        <td>12-20-2014</td>
+                      </tr>
+                      <tr>
+                        <td>Chrysler</td>
+                        <td>Automotive</td>
+                        <td>12-01-2014</td>
+                      </tr>
+                      <tr>
+                        <td>Tesla</td>
+                        <td>Automotive</td>
+                        <td>12-18-2014</td>
+                      </tr>
+                      <tr>
+                        <td>Oakland University</td>
+                        <td>Education</td>
+                        <td>12-11-2014</td>
+                      </tr>
+                      <tr>
+                        <td>Michigan State University</td>
+                        <td>Education</td>
+                        <td>12-14-2014</td>
                       </tr>
                     </tbody>
                   </table>
@@ -155,7 +181,7 @@
           <div class="footer">
             <div class="power">Powered By</div>
             <div class="stamp"></div>
-            <div>Copyright 2014<br>All Rights Reserved</div>
+            <div>Copyright 2016<br>All Rights Reserved</div>
           </div>
         </div>
       </div>

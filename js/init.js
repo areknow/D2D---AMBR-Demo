@@ -1,13 +1,35 @@
 $(function() { 
   
-//  setTabContentHeight();
   
+  // add buyer button slide down click
   $('#toggle-inputs').click(function() {
-    $('.input-row').slideToggle();
+    $('.input-row').slideToggle(100);
+    $('.green-button .fa').toggleClass("fa-minus-circle").toggleClass("fa-plus-circle");
   });
   
   
+  // input label float functions
+  $("input").blur(function() {
+    $(this).parent().toggleClass("input-active");
+    if($(this).val()) {$(this).parent().toggleClass('input-active');}
+  });
+  $("input").focus(function() {
+    $(this).parent().toggleClass("input-active");
+    if($(this).val()) {$(this).parent().toggleClass('input-active');}
+  });
   
+  // input save button disable/enable
+  $('input').bind('input', function() {
+    if ($("#in-company").val()!="" && 
+        $("#in-industry").val()!="" && 
+        $("#in-date").val()!="") {
+      $("#addRow").removeClass("disabled");
+    } else {
+      $("#addRow").addClass("disabled");
+    }
+  });
+  
+  // init buyers data table with custom options
   var table = $('#buyers').DataTable({
     bFilter: false,
     "lengthMenu": [10,20],
@@ -35,41 +57,33 @@ $(function() {
   });
   
   
-  
-  
-  
-  
-  
-  
-
-
-  $("input").blur(function() {
-    $(this).parent().toggleClass("input-active");
-    if($(this).val()) {$(this).parent().toggleClass('input-active');}
-  });
-  $("input").focus(function() {
-    $(this).parent().toggleClass("input-active");
-    if($(this).val()) {$(this).parent().toggleClass('input-active');}
-  });
-  
-
-  
-  
-
-  
+  // add buyer table row functionality
   $('#addRow').click(function() {
-    var company = $('#in-company').val();
-    var industry = $('#in-industry').val();
-    var date = $('#in-date').val();
+    var company = $('#in-company');
+    var industry = $('#in-industry');
+    var date = $('#in-date');
     table.row.add([
-      company,
-      industry,
-      date
+      company.val(),
+      industry.val(),
+      date.val()
     ]).draw(true);
     $('#page-count').insertAfter('#buyers_paginate');
+    company.val("");
+    industry.val("");
+    date.val("");
+    $("#addRow").addClass("disabled");
+    $("input").parent().toggleClass("input-active");
   });
   
   
+
+
+  
+  
+
+  
+  
+
   
   
   
@@ -77,19 +91,11 @@ $(function() {
   
   
   
-});
+  
+  
+  
+  
+});// end doc ready
 
 
 
-
-//$(window).resize(function() {
-//  setTabContentHeight();
-//});
-
-
-
-//function setTabContentHeight() {
-//  console.log($(window).height());
-//  console.log($('header').height());
-//  $('.tab-content').height($(window).height()-$('header').outerHeight()-$('.tab-header').outerHeight()-6);
-//} 
