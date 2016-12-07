@@ -4,21 +4,22 @@ $exo: 'Exo 2', sans-serif;
 $open-sans: 'Open Sans', sans-serif;
 
 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
+body {
+  font-family: $open-sans;
+}
 .inline-block {
   display: inline-block;
   vertical-align: middle;
 }
 
 
-body {
-  font-family: $open-sans;
-}
 
 
 header {
@@ -38,7 +39,6 @@ header {
     //need a 2x asset for retina displays here...
     background: url(../res/d2d.png);
     background-size: contain;
-      
   }
   .signout {
     margin-left: 28px;
@@ -73,7 +73,7 @@ header {
   font-weight: 300;
   height: 1100px;
     > .tab-content {
-      padding-top: 43px;//fix
+      padding-top: 43px;
       display: inline;
       width: 100%;
       height: 100%;
@@ -121,6 +121,12 @@ header {
             font-size: 16px;
             font-weight: 600;
             box-shadow: inset 6px 0 9px -7px rgba(0,0,0,0.7);
+            .mobile-menu {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              display: none;
+            }
           }
           .tab-main {
             padding: 40px 40px 0 34px;
@@ -211,26 +217,18 @@ header {
     }
 }
 
+
+
+
 #tab-1 + .tab-label {
   border-top: 1px solid #5dbeec;
-
-//  &:hover {
-//    border-top: 1px solid #fdf2f1;
-//    border-bottom: 1px solid #fdf2f1;
-//  }
-
 }
-
-
-
 .tab1 {
-  //move to global if reuse
   .input-row {
     display: none;
     margin-top: 20px;
     .input {
       position: relative;
-//      border:1px solid red;
       display: inline-block;
       margin-top: 0;
       margin-right: 20px;
@@ -320,7 +318,6 @@ header {
     }
   }
 }
-
 #buyers_wrapper {
   position: relative;
 }
@@ -454,9 +451,6 @@ header {
     }
   }
 }
-//table.dataTable thead th, table.dataTable thead td {
-//  border-bottom: none !important;
-//}
 table.dataTable thead .sorting_asc {
   background-image: url(../res/sort_asc.png) !important;
 }
@@ -480,9 +474,92 @@ table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.st
 }
 table.dataTable.order-column tbody tr>.sorting_1, table.dataTable.order-column tbody tr>.sorting_2, table.dataTable.order-column tbody tr>.sorting_3, table.dataTable.display tbody tr>.sorting_1, table.dataTable.display tbody tr>.sorting_2, table.dataTable.display tbody tr>.sorting_3 {
   background-color: inherit !important;
-  
 }
-
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: inherit !important;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px) {
+  .tabs {
+    height: 750px;
+  }
+  .tabs>.tab-content .tab .content {
+    box-shadow: none;
+    left:0;
+    .tab-main {
+      padding: 10px;
+    }
+    .tab-header {
+      padding-left: 10px;
+      box-shadow: none;
+    }
+  }
+  .tabs>.tab-content .tab .tab-label {
+    width: 100%;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.36);
+  }
+  .tabs>.tab-content .tab [type=radio]:checked+label {
+    z-index: 0;
+  }
+  .mobile-menu { 
+    display: block !important;
+  }
+  header {
+    text-align: center;
+    padding: 10px 0;
+    .logo {
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      left: 0
+    }
+    .inner {
+      margin-top: 20px;
+    }
+  }
+  #buyers_length, #page-count {
+    display: none !important;
+  }
+  .dataTables_info {
+    padding-top: 14px !important;
+    margin-bottom: 28px;
+  }
+  .dataTables_paginate {
+    top: 7px;
+  }
+  .dataTable thead th {
+    font-size: 12px!important;
+  }
+  .green-button {
+    position: relative !important;
+    margin-top: 10px;
+    display: block;
+  }
+  .tab1 .input-row {
+    .input {
+      display: block;
+      margin-right: 0;
+      input {
+        width: 100%;
+      }
+    }
+  }
+  .tabs>.tab-content .tab .content .tab-main {
+    padding-top: 10px;
+  }
+  .dataTable {
+    tbody {
+      td {
+        padding: 8px 10px !important;
+      }
+    }
+  }
 }
