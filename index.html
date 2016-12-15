@@ -4,12 +4,10 @@
     <title>D2D - AMBR Demo</title>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="//fonts.googleapis.com/css?family=Exo+2:600,700|Open+Sans:400,700" rel="stylesheet">
-    <script src="//use.fontawesome.com/a03b746a85.js"></script>
+    <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name='author' content='Arnaud P. Crowther'>
-    <link rel="shortcut icon" href="http://d2dbusiness.org/wp-content/themes/d2d/images/favicon.png" />
   </head>
   <body>
     <header>
@@ -23,7 +21,7 @@
       </div>
     </header>
     <section>
-      <div class="tabs">
+      <div id="tab-main" class="tabs">
         <div class="tab-content">
           <div class="tab">
             <input type="radio" name="tab-group" id="tab-1" checked>
@@ -31,35 +29,29 @@
             <div class="content tab1">
               <div class="tab-header">
                 Buyers List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
               <div class="tab-main">
                 <div class="title">
                   <div class="inline-block">Manage Buyers</div>
-                  <div id="toggle-inputs" class="green-button inline-block"><i class="fa fa-fw fa-plus-circle" aria-hidden="true"></i> Add Buyer</div>
-                </div>
-                <div class="input-row">
-                  <div class="input">
-                    <label for="in-company">Company</label>
-                    <input type="text" id="in-company" placeholder="">
-                  </div>
-                  <div class="input">
-                    <label for="in-industry">Industry</label>
-                    <input type="text" id="in-industry" placeholder="">
-                  </div>
-                  <div class="input">
-                    <label for="in-date">Date</label>
-                    <input type="text" id="in-date" placeholder="">
-                  </div>
-                  <button id="addRow" class="disabled" type="button"><i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i></button>
+                  <div onclick="showDialog()" id="toggle-inputs" class="green-button inline-block"><i class="fa fa-fw fa-plus-circle" aria-hidden="true"></i> Add Buyer</div>
                 </div>
                 <div class="inner">
+                  <div class="table-buttons">
+                    <div class="inline-block">Showing <span id="numOfRows"></span> of 55</div>
+                    <div class="inline-block table-button dropdown">Show 10</div>
+                    <div class="table-buttons table-buttons-float">
+                      <div class="inline-block">Page 1 of 2</div>
+                      <div class="inline-block table-button left">Prev</div>
+                      <div class="inline-block table-button right">Next</div>
+                    </div>
+                  </div>
                   <table id="buyers" class="display" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th class="border">Company Name</th>
-                        <th class="border">Industry</th>
-                        <th>Last Updated</th>
+                        <th class="border width40">Company Name <span></span></th>
+                        <th class="border width40">Industry <span></span></th>
+                        <th>Last Updated <span></span></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -93,31 +85,6 @@
                         <td>Finance</td>
                         <td>12-02-2014</td>
                       </tr>
-                      <tr>
-                        <td>Ford</td>
-                        <td>Automotive</td>
-                        <td>12-20-2014</td>
-                      </tr>
-                      <tr>
-                        <td>Chrysler</td>
-                        <td>Automotive</td>
-                        <td>12-01-2014</td>
-                      </tr>
-                      <tr>
-                        <td>Tesla</td>
-                        <td>Automotive</td>
-                        <td>12-18-2014</td>
-                      </tr>
-                      <tr>
-                        <td>Oakland University</td>
-                        <td>Education</td>
-                        <td>12-11-2014</td>
-                      </tr>
-                      <tr>
-                        <td>Michigan State University</td>
-                        <td>Education</td>
-                        <td>12-14-2014</td>
-                      </tr>
                     </tbody>
                   </table>
                   <p id="page-count"></p>
@@ -131,7 +98,7 @@
             <div class="content">
               <div class="tab-header">
                 Suppliers List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -141,7 +108,7 @@
             <div class="content">
               <div class="tab-header">
                 Spending List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -151,7 +118,7 @@
             <div class="content">
               <div class="tab-header">
                 Events List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -161,7 +128,7 @@
             <div class="content">
               <div class="tab-header">
                 Reports List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -171,7 +138,7 @@
             <div class="content">
               <div class="tab-header">
                 Users List
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -181,7 +148,7 @@
             <div class="content">
               <div class="tab-header">
                 Import
-                <div class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></div>
+                <button onclick="openMenu()" class="mobile-menu"><i class="fa fa-fw fa-bars" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -193,10 +160,30 @@
         </div>
       </div>
     </section>
+    <div id="addBuyerDialog">
+      <div class="inner">
+        <h3>Add a new buyer</h3>
+        <div class="input-row">
+          <div class="input">
+            <label for="in-company">Company</label>
+            <input type="text" id="in-company" placeholder="">
+          </div>
+          <div class="input">
+            <label for="in-industry">Industry</label>
+            <input type="text" id="in-industry" placeholder="">
+          </div>
+          <div class="input">
+            <label for="in-date">Date</label>
+            <input type="text" id="in-date" placeholder="">
+          </div>
+          <div class="button-row">
+            <button onclick="insertRow()" id="addRow" type="button"><i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i> SAVE</button>
+          <button onclick="closeDialog()" id="addRow" type="button"></i> CANCEL</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="assets/js/init.min.js" type="text/javascript"></script>
   <script src="assets/js/console-message.min.js" type="text/javascript"></script>
-  <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
-  <script src="//cdn.datatables.net/plug-ins/1.10.12/api/fnPagingInfo.js" type="text/javascript"></script>
 </html>
